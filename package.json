@@ -8,11 +8,11 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/octaboomai/VibeBot-studio"
+    "url": "https://github.com/octaboomai/VibeBot"
   },
-  "homepage": "https://open-vsx.org/extension/vibebot/vibebot-studio",
+  "homepage": "https://github.com/octaboomai/VibeBot#readme",
   "bugs": {
-    "url": "https://github.com/octaboomai/VibeBot-studio/issues"
+    "url": "https://github.com/octaboomai/VibeBot/issues"
   },
   "engines": {
     "vscode": "^1.136.0"
