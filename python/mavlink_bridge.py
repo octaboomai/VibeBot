@@ -141,6 +141,7 @@ MAV_TYPE_HEXAROTOR      = 13
 MAV_TYPE_OCTOROTOR      = 14
 MAV_TYPE_VTOL_RESERVED1 = 19
 
+
 def _mode_string(mav_type: int, custom_mode: int, base_mode: int) -> str:
     """Best-effort human-readable mode string from a HEARTBEAT message.
     Handles both PX4 and ArduPilot mode encoding correctly.
@@ -170,20 +171,25 @@ def _mode_string(mav_type: int, custom_mode: int, base_mode: int) -> str:
         return "MANUAL"
     return "UNKNOWN"
 
+
 def emit(msg_type: str, data: dict) -> None:
     """Write a single newline-terminated JSON envelope to stdout."""
     payload = json.dumps({"type": msg_type, "data": data, "ts": time.time()})
     print(payload, flush=True)
 
+
 def safe_hdop(raw: int) -> float | None:
     """Convert raw HDOP/VDOP (cm units, 65535 = unknown) to float or None."""
     return round(raw / 100.0, 2) if raw != 65535 else None
+
 
 def safe_vel(raw: int) -> float | None:
     """Convert cm/s to m/s; treat 65535 as unknown."""
     return round(raw / 100.0, 2) if raw != 65535 else None
 
+
 # ── Main bridge loop ──────────────────────────────────────────────────────────
+
 def run(host: str, port: int) -> None:
     conn_str = f"udpin:{host}:{port}"
     emit("status", {"message": f"Connecting — {conn_str} …"})
@@ -375,6 +381,7 @@ def run(host: str, port: int) -> None:
     except Exception as exc:
         emit("error",        {"message": str(exc)})
         emit("disconnected", {"reason": str(exc)})
+
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 
