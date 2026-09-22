@@ -1,0 +1,11 @@
+# VibeBot Studio — Python bridge dependencies
+# Install with: pip install -r requirements.txt
+# Or globally:  pip install pymavlink
+
+# MAVLink parsing — supports ArduPilot and PX4 dialects
+pymavlink>=2.4.37
+
+# Phase 2 additions (not needed for Month 1):
+# pyulog>=0.9.0      # PX4 .ulg flight log parser
+# numpy>=1.24.0      # telemetry statistics / FFT
+# scipy>=1.11.0      # signal processing for anomaly detection
