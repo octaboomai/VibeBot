@@ -1,0 +1,12 @@
+.vscode/**
+node_modules/**
+src/**
+webview/**
+python/**
+esbuild.js
+tsconfig.json
+**/*.map
+**/*.ts
+!dist/**
+!resources/**
+!python/**
